@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bw1q3ugw032ho"]
+
+[ext_resource type="Texture2D" uid="uid://dcdrmf022o3m3" path="res://addons/proto-csgs/textures/green/texture_08.png" id="1_mmcqq"]
+
+[resource]
+albedo_texture = ExtResource("1_mmcqq")
+uv1_scale = Vector3(1.41, 1.41, 1.41)
+uv1_triplanar = true

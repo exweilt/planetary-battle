@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://csg7w0rrxv0yy"]
+
+[ext_resource type="Script" path="res://src/Turret.gd" id="1_nb8wc"]
+[ext_resource type="Texture2D" uid="uid://yadprs2flrrn" path="res://addons/proto-csgs/textures/red/texture_09.png" id="1_xyaa7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2knto"]
+albedo_texture = ExtResource("1_xyaa7")
+uv1_scale = Vector3(1.92, 1.92, 1.92)
+uv1_triplanar = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w3bk8"]
+material = SubResource("StandardMaterial3D_2knto")
+height = 4.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_oqocb"]
+points = PackedVector3Array(0.547619, 2.03175, 0.166629, -0.531746, -2.03175, -0.214149, -0.531746, -2.03175, 0.230128, -0.531746, 2.03175, -0.214149, 0.420622, -2.03175, -0.404644, 0.166629, -2.03175, 0.547619, -0.150651, 2.03175, 0.547619, 0.230128, 2.03175, -0.531746, -0.214149, -2.03175, -0.531746, 0.547619, -2.03175, 0.166629, -0.531746, 2.03175, 0.230128, -0.341251, 2.03175, -0.468248, 0.293626, 2.03175, 0.484121, 0.547619, 2.03175, -0.150651, -0.404644, -2.03175, 0.420622, 0.230128, -2.03175, -0.531746, 0.547619, -2.03175, -0.150651, -0.150651, -2.03175, 0.547619, 0.484121, -2.03175, 0.293626, 0.420622, 2.03175, -0.404644, -0.404644, 2.03175, 0.420622, -0.468248, -2.03175, -0.341251, -0.214149, 2.03175, -0.531746, 0.166629, 2.03175, 0.547619, 0.293626, -2.03175, 0.484121, 0.484121, 2.03175, 0.293626, -0.341251, -2.03175, -0.468248, -0.468248, 2.03175, -0.341251)
+
+[node name="Turret" type="Node3D"]
+script = ExtResource("1_nb8wc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("CylinderMesh_w3bk8")
+
+[node name="CollisionCollider" type="Area3D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("ConvexPolygonShape3D_oqocb")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0102081, 5.72939, 0.0124831)
+pixel_size = 0.0583
+billboard = 1
+text = "0"

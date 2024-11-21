@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbrlt2tuv2a5u"]
+
+[ext_resource type="Script" path="res://src/VisualBullet.gd" id="1_exuae"]
+[ext_resource type="Material" uid="uid://cyhqy5dhjvogk" path="res://materials/glowing_bullet.tres" id="2_o3qnk"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_p6h88"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rpgwe"]
+material = ExtResource("2_o3qnk")
+
+[node name="VisualBullet" type="Node3D"]
+script = ExtResource("1_exuae")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.177654, 0, 0, 0, -2.89238e-08, -0.177654, 0, 0.661699, -7.76551e-09, 0, 8.98459e-09, -0.205544)
+visible = false
+mesh = SubResource("CapsuleMesh_p6h88")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.267746, 0, 0, 0, -9.44977e-08, 0.267746, 0, -2.16186, -1.17035e-08, 0, -2.34118e-08, -0.5356)
+mesh = SubResource("SphereMesh_rpgwe")
