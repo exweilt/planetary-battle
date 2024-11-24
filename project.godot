@@ -10,11 +10,13 @@ config_version=5
 
 [application]
 
-config/name="networked"
-run/main_scene="res://pb_world.tscn"
+config/name="Planetary;Battle -> l'iterazione 1"
+config/description="The first Iteration of Planetary;Battle project"
+run/main_scene="res://components/pb_world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/show_image=false
 boot_splash/use_filter=false
+config/icon="res://assets/textures/icon.jpg"
 
 [autoload]
 
