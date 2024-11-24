@@ -476,43 +476,43 @@ shadow_mesh = SubResource("ArrayMesh_hssh2")
 
 [node name="rob2" type="Node3D" parent="."]
 
-[node name="Cube_061" type="MeshInstance3D" parent="rob2"]
+[node name="Ecroplane_base" type="MeshInstance3D" parent="rob2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.444, 0)
 mesh = SubResource("ArrayMesh_idnta")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_cuiib")
 
-[node name="Cube_062" type="MeshInstance3D" parent="rob2/Cube_061"]
+[node name="Cube_062" type="MeshInstance3D" parent="rob2/Ecroplane_base"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.050413, 0)
 mesh = SubResource("ArrayMesh_fsr48")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_cuiib")
 
-[node name="Cube_063" type="MeshInstance3D" parent="rob2/Cube_061/Cube_062"]
+[node name="Cube_063" type="MeshInstance3D" parent="rob2/Ecroplane_base/Cube_062"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.303787, -0.244548)
 mesh = SubResource("ArrayMesh_wlso6")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_cuiib")
 
-[node name="Cylinder_038" type="MeshInstance3D" parent="rob2/Cube_061/Cube_062/Cube_063"]
+[node name="Cylinder_038" type="MeshInstance3D" parent="rob2/Ecroplane_base/Cube_062/Cube_063"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000749588, 0.0893281, 0.00348803)
 mesh = SubResource("ArrayMesh_5llul")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_cuiib")
 
-[node name="Cube_064" type="MeshInstance3D" parent="rob2/Cube_061/Cube_062"]
+[node name="Cube_064" type="MeshInstance3D" parent="rob2/Ecroplane_base/Cube_062"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.281883, 0.148213, 0.535206)
 mesh = SubResource("ArrayMesh_k0p5x")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_cuiib")
 
-[node name="Cylinder_037" type="MeshInstance3D" parent="rob2/Cube_061/Cube_062/Cube_064"]
+[node name="Cylinder_037" type="MeshInstance3D" parent="rob2/Ecroplane_base/Cube_062/Cube_064"]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.00216103, 0.127622, 0.005723)
 mesh = SubResource("ArrayMesh_bq0x0")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_cuiib")
 
-[node name="Slice_020" type="MeshInstance3D" parent="rob2/Cube_061/Cube_062"]
+[node name="Slice_020" type="MeshInstance3D" parent="rob2/Ecroplane_base/Cube_062"]
 mesh = SubResource("ArrayMesh_k83oa")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_cuiib")

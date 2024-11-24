@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq8cy65jagsv6"]
+
+[ext_resource type="PackedScene" uid="uid://c5u2vihxx75wy" path="res://assets/models/antigravs/antigravs.glb" id="1_3bu2e"]
+
+[node name="Antigravs" type="Node3D"]
+
+[node name="antigravs" parent="." instance=ExtResource("1_3bu2e")]
+transform = Transform3D(0.371453, 0, 0, 0, 0.371453, 0, 0, 0, 0.371453, 0, 0.780607, 0.0101944)

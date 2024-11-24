@@ -4,10 +4,10 @@
 [ext_resource type="Material" path="res://materials/WallMat.tres" id="3_6tjsf"]
 [ext_resource type="Texture2D" uid="uid://cekh5d0a6ehq5" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="4_ii0nn"]
 [ext_resource type="PackedScene" uid="uid://dlwr2l2t02lr1" path="res://components/robot_3.tscn" id="5_dq8sv"]
-[ext_resource type="PackedScene" uid="uid://dqayqrbfafwiq" path="res://components/factory.tscn" id="6_ftjug"]
+[ext_resource type="PackedScene" uid="uid://dqayqrbfafwiq" path="res://components/buildings/factory.tscn" id="6_ftjug"]
 [ext_resource type="Texture2D" uid="uid://y2nk8i83u263" path="res://addons/kenney_prototype_textures/green/texture_04.png" id="7_au1ad"]
-[ext_resource type="PackedScene" uid="uid://bhx88wpvalofj" path="res://components/base.tscn" id="8_7ntju"]
-[ext_resource type="PackedScene" uid="uid://bptm5k03xc6vj" path="res://components/destination_point.tscn" id="9_6ncdv"]
+[ext_resource type="PackedScene" uid="uid://bhx88wpvalofj" path="res://components/buildings/base.tscn" id="8_7ntju"]
+[ext_resource type="PackedScene" uid="uid://bptm5k03xc6vj" path="res://components/misc/destination_point.tscn" id="9_6ncdv"]
 [ext_resource type="PackedScene" uid="uid://bcf73705irpyr" path="res://components/robot2.tscn" id="11_4rxuq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_8emhg"]
