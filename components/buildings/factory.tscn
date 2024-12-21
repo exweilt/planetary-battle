@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=4 uid="uid://dqayqrbfafwiq"]
+[gd_scene load_steps=27 format=4 uid="uid://dqayqrbfafwiq"]
 
-[ext_resource type="Material" path="res://materials/BlueCommandColorMat.tres" id="1_t6c43"]
+[ext_resource type="Material" uid="uid://bx6ydbagi7tf" path="res://materials/BuildingTeamNeutralMat.tres" id="1_18mok"]
+[ext_resource type="Script" path="res://src/Factory.gd" id="1_ofvdb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rumec"]
 
@@ -273,54 +274,58 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vdgyd")
 
 [node name="Factory" type="Node3D"]
+script = ExtResource("1_ofvdb")
 
 [node name="factory" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3, 0, 3.45)
 
 [node name="Circle" type="MeshInstance3D" parent="factory"]
 transform = Transform3D(1.69109, 0, 0, 0, 1.69109, 0, 0, 0, 1.69109, 7.34808, 0.00101256, -0.241279)
-material_override = ExtResource("1_t6c43")
+material_override = ExtResource("1_18mok")
 mesh = SubResource("ArrayMesh_cdcua")
 skeleton = NodePath("")
 
 [node name="Cube_021" type="MeshInstance3D" parent="factory"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.34808, 1.56394, -3.94506)
-material_override = ExtResource("1_t6c43")
+material_override = ExtResource("1_18mok")
 mesh = SubResource("ArrayMesh_lbusr")
 skeleton = NodePath("")
 
 [node name="Plane" type="MeshInstance3D" parent="factory"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.34808, 0.00101256, -6.47277)
-material_override = ExtResource("1_t6c43")
+material_override = ExtResource("1_18mok")
 mesh = SubResource("ArrayMesh_uxw7g")
 skeleton = NodePath("")
 
 [node name="Plane_001" type="MeshInstance3D" parent="factory"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.24263, 0.00101256, -6.47277)
-material_override = ExtResource("1_t6c43")
+material_override = ExtResource("1_18mok")
 mesh = SubResource("ArrayMesh_jdp48")
 skeleton = NodePath("")
 
 [node name="Plane_002" type="MeshInstance3D" parent="factory"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.13233, 0.00101256, -6.47277)
-material_override = ExtResource("1_t6c43")
+material_override = ExtResource("1_18mok")
 mesh = SubResource("ArrayMesh_r4m8a")
 skeleton = NodePath("")
 
 [node name="Circle_001" type="MeshInstance3D" parent="factory"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.34808, 0.121125, -0.241279)
-material_override = ExtResource("1_t6c43")
+material_override = ExtResource("1_18mok")
 mesh = SubResource("ArrayMesh_78pq6")
 skeleton = NodePath("")
 
 [node name="Plane_004" type="MeshInstance3D" parent="factory"]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 10.0894, 0.00101256, -4.83846)
-material_override = ExtResource("1_t6c43")
+material_override = ExtResource("1_18mok")
 mesh = SubResource("ArrayMesh_vsybk")
 skeleton = NodePath("")
 
 [node name="Cylinder_012" type="MeshInstance3D" parent="factory"]
 transform = Transform3D(0.533493, 0, 0, 0, 0.533493, 0, 0, 0, 0.533493, 7.93726, 4.58926, -3.57292)
-material_override = ExtResource("1_t6c43")
+material_override = ExtResource("1_18mok")
 mesh = SubResource("ArrayMesh_ni4lh")
 skeleton = NodePath("")
+
+[node name="CapturePoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0554841, 0.195853, 3.20961)

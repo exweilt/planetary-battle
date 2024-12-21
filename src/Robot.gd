@@ -2,9 +2,12 @@ class_name Robot extends Node3D
 
 const Turret = preload("res://src/Turret.gd")
 
-const visual_bullet_scene = preload("res://components/visual_bullet.tscn")
+const visual_bullet_scene = preload("res://components/misc/visual_bullet.tscn")
 const VisualBullet = preload("res://src/VisualBullet.gd")
 const RobotScene = preload("res://components/robot.tscn")
+
+@export var robot_id: int = 0
+@export var side_id: int = 1
 
 @onready var nav_agent: NavigationAgent3D = get_node("./NavigationAgent3D")
 @onready var target_destination: Vector3 = get_global_position():
@@ -14,6 +17,7 @@ const RobotScene = preload("res://components/robot.tscn")
 		
 #@onready var turret: Node3D = Utils.get_PB_world().get_node("Turrets/Turret")
 @onready var hull: Node3D = get_node("robot/joint")
+@onready var selection_circle: MeshInstance3D = get_node("SelectionCircle")
 
 const SPEED: float = 4.0
 const MAX_CHASSIS_ROTATION_SPEED = 2.0
@@ -26,7 +30,15 @@ const RELOADING_TIME: float = 2.0
 
 var speed: float = 0.0
 
-@onready var turrets: Array[Node] = Utils.get_PB_world().get_node("DynamicState/Turrets").get_children()
+const MAX_HEALTH: float = 100.0
+var health: int = 100.0 :
+	set(new_health):
+		health = new_health
+		progress_bar.value = health
+		
+@onready var navigation_map: RID = Utils.get_PB_world().get_node("NavigationRegion3D").get_navigation_map()
+
+@onready var turrets: Array[Node] = Utils.get_PB_world().get_node("Turrets").get_children()
 enum RobotState {
 	NONE,
 	NOT_AIMING,
@@ -38,6 +50,11 @@ var aiming_target: Turret = null
 @onready var bullet_spawnpoint: Node3D = get_node("%BulletSpawnpoint")
 
 @onready var reload_timer: Timer = get_node("Reload")
+
+const YELLOW_MATERIAL: Material = preload("res://materials/TeamColorMatYellow.tres")
+const RED_MATERIAL: Material = preload("res://materials/TeamColorMatRed.tres")
+const GREEN_MATERIAL: Material = preload("res://materials/TeamColorMatGreen.tres")
+const BLUE_MATERIAL: Material = preload("res://materials/TeamColorMatBlue.tres")
 
 #
 #func _physics_process(delta: float) -> void:
@@ -57,9 +74,8 @@ static func unserialize(data: Dictionary, path: NodePath) -> Robot:
 	new_robot.set_global_position(data["global_position"])
 	new_robot.set_global_rotation(data["global_rotation"])
 	return new_robot
+
 	
-#func _ready() -> void:
-	#Utils.get_PB_world().register_node(self)
 
 func logic_update() -> void:
 	if robot_state != RobotState.AIMING:
@@ -148,9 +164,9 @@ func pb_process(delta: float) -> void:
 		var needed_direction: Vector3 = global_position.direction_to(next_pos)
 		var robot_direction = global_basis.z
 		
-		DebugDraw3D.draw_arrow(global_position, global_position + global_basis.y * 5.0, Color.BLUE, 0.1)
-		DebugDraw3D.draw_arrow(global_position, global_position + robot_direction * 5.0, Color.RED, 0.1)
-		DebugDraw3D.draw_arrow(global_position, global_position + needed_direction * 5.0, Color.GREEN, 0.1)
+		DebugDraw3D.draw_arrow(global_position, global_position + global_basis.y * 5.0, Color.BLUE, 0.2, false, PBWorld.FRAME_DURATION)
+		DebugDraw3D.draw_arrow(global_position, global_position + robot_direction * 5.0, Color.RED, 0.2, false, PBWorld.FRAME_DURATION)
+		DebugDraw3D.draw_arrow(global_position, global_position + needed_direction * 5.0, Color.GREEN, 0.2, false, PBWorld.FRAME_DURATION)
 		
 		var angle_rad: float = angle_between_from_side(robot_direction, needed_direction, global_basis.y)
 		#var angle_rad: float = robot_direction.signed_angle_to(needed_direction, Vector3.UP)
@@ -161,14 +177,26 @@ func pb_process(delta: float) -> void:
 		var angle_to_turn = amplitude_final * sign(angle_rad)
 		rotation.y += angle_to_turn
 		
+		
 		if abs(angle_rad) > deg_to_rad(10.0):
 			# Turning
-			speed = speed - ACCELERATION * delta # funny turning from standing still
-			#speed = max(speed - ACCELERATION * delta, 0.0)
+			#speed = speed - ACCELERATION * delta # funny turning from standing still
+			speed = max(speed - ACCELERATION * delta, 0.0)
 		else:
 			# Going
 			speed = min(speed + ACCELERATION * delta, MAX_SPEED)
-		global_position += robot_direction * speed * delta
+				
+		#if not is_point_over_navmesh(future_position):
+			#speed = 0.0
+		#else:
+			#global_position = future_position
+			
+		var elevation_from_path: Vector3 = Vector3(0, needed_direction.y, 0)
+		#global_position += (robot_direction + elevation_from_path) * speed * delta
+		var future_position = global_position + (robot_direction + elevation_from_path) * speed * delta
+		global_position = future_position
+		
+			
 	else:
 		speed = 0.0	
 
@@ -185,5 +213,47 @@ func pb_process(delta: float) -> void:
 			DebugDraw2D.set_text("Looking at the target", "no")
 	else:
 		rotate_hull_towards(hull.global_position + basis.z, delta)
-	DebugDraw3D.draw_line(hull.global_position, hull.global_position + hull.global_basis.z * 20.0)
+		
+	DebugDraw3D.draw_line(hull.global_position, hull.global_position + hull.global_basis.z * 20.0, Color(0, 0, 0, 0), PBWorld.FRAME_DURATION)
+
+@onready var progress_bar: ProgressBar3D = get_node("ProgressBar3D")
+func _ready() -> void:
+	Utils.get_PB_world().register_node(self)
 	
+	progress_bar.progress_color = Utils.get_PB_world().side_to_color_binding[side_id]
+	match side_id:
+		1:
+			Utils.set_child_meshes_material(get_node("robot"), YELLOW_MATERIAL)	
+		2:
+			Utils.set_child_meshes_material(get_node("robot"), RED_MATERIAL)
+		3:
+			Utils.set_child_meshes_material(get_node("robot"), GREEN_MATERIAL)
+		4:
+			Utils.set_child_meshes_material(get_node("robot"), BLUE_MATERIAL)
+	
+const DISTANCE_THRESHOLD = 0.1
+func is_point_over_navmesh(point: Vector3) -> bool:
+	#navigation_region.get_navigation_map()
+	var closest: Vector3 = NavigationServer3D.map_get_closest_point_to_segment(navigation_map,
+		Vector3(point.x, 1000.0, point.z),
+		Vector3(point.x, -1000.0, point.z),
+	)
+	 
+	return (closest - Vector3.UP * closest.y).distance_to(point - Vector3.UP * point.y) < DISTANCE_THRESHOLD
+
+func select() -> void:
+	selection_circle.visible = true
+	
+	var pc: PlayerController = Utils.get_controller()
+	
+	if not pc.selected_robots.has(self):
+		pc.selected_robots.append(self)
+
+func unselect() -> void:
+	selection_circle.visible = false
+	
+	var pc: PlayerController = Utils.get_controller()
+	
+	if pc.selected_robots.has(self):
+		pc.selected_robots.erase(self)
+		

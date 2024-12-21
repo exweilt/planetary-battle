@@ -1,6 +1,10 @@
-[gd_scene load_steps=32 format=4 uid="uid://bhx88wpvalofj"]
+[gd_scene load_steps=38 format=4 uid="uid://bhx88wpvalofj"]
 
-[ext_resource type="Material" path="res://materials/DarkBlueMat.tres" id="1_ro2pm"]
+[ext_resource type="Script" path="res://src/Base.gd" id="1_whobt"]
+[ext_resource type="Material" uid="uid://bx6ydbagi7tf" path="res://materials/BuildingTeamNeutralMat.tres" id="2_5ghug"]
+[ext_resource type="Shader" uid="uid://bis1sejrnr2xs" path="res://materials/SelectionCircleShader.tres" id="3_alwv3"]
+[ext_resource type="Texture2D" uid="uid://c6dhyhlqxoqp4" path="res://assets/textures/sphere_46.png" id="4_bxy6s"]
+[ext_resource type="Script" path="res://src/SelectionCircle.gd" id="5_v8um8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xssa7"]
 
@@ -328,67 +332,96 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2sbc0")
 
-[node name="base" type="Node3D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8hnja"]
+render_priority = 0
+shader = ExtResource("3_alwv3")
+shader_parameter/albedo = Color(0.81369, 0.826226, 3.85046e-07, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_albedo = ExtResource("4_bxy6s")
+
+[sub_resource type="QuadMesh" id="QuadMesh_xuddw"]
+size = Vector2(3.5, 3.5)
+orientation = 1
+
+[node name="Base" type="Node3D"]
+script = ExtResource("1_whobt")
 
 [node name="base" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.1, 0, 3.65)
 
 [node name="Cube_023" type="MeshInstance3D" parent="base"]
-transform = Transform3D(1.32934, 0, 0, 0, 0.0714635, 0, 0, 0, 1.32934, 16.0484, -1.21673, -0.241279)
-material_override = ExtResource("1_ro2pm")
+transform = Transform3D(1.32934, 0, 0, 0, 0.0714635, 0, 0, 0, 1.32934, 16.0449, -3.14797, -0.25654)
+material_override = ExtResource("2_5ghug")
 mesh = SubResource("ArrayMesh_7qk35")
 skeleton = NodePath("")
 
 [node name="Plane_003" type="MeshInstance3D" parent="base"]
-transform = Transform3D(1.48507, 0, 0, 0, 1.62742, 0, 0, 0, 1.62742, 17.0484, -0.10401, -0.241279)
-material_override = ExtResource("1_ro2pm")
+transform = Transform3D(1.48507, 0, 0, 0, 1.62742, 0, 0, 0, 1.62742, 17.0484, -0.135117, -0.241279)
+material_override = ExtResource("2_5ghug")
 mesh = SubResource("ArrayMesh_qawlp")
 skeleton = NodePath("")
 
 [node name="Plane_005" type="MeshInstance3D" parent="base"]
-transform = Transform3D(1.48507, 0, 0, 0, 1.62742, 0, 0, 0, 1.62742, 15.0484, -0.10401, -0.241279)
-material_override = ExtResource("1_ro2pm")
+transform = Transform3D(1.48507, 0, 0, 0, 1.62742, 0, 0, 0, 1.62742, 15.0484, -0.135117, -0.241279)
+material_override = ExtResource("2_5ghug")
 mesh = SubResource("ArrayMesh_reepk")
 skeleton = NodePath("")
 
 [node name="Cube_024" type="MeshInstance3D" parent="base"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0484, -0.55654, -0.263386)
-material_override = ExtResource("1_ro2pm")
+material_override = ExtResource("2_5ghug")
 mesh = SubResource("ArrayMesh_m6ah0")
 skeleton = NodePath("")
 
 [node name="Cube_025" type="MeshInstance3D" parent="base"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0484, 1.89839, -4.59206)
-material_override = ExtResource("1_ro2pm")
+material_override = ExtResource("2_5ghug")
 mesh = SubResource("ArrayMesh_igps4")
 skeleton = NodePath("")
 
 [node name="Cube_030" type="MeshInstance3D" parent="base"]
 transform = Transform3D(0.300182, 0, 0, 0, 1.33242, 0, 0, 0, 1.80861, 17.7005, 1.1038, -0.634724)
-material_override = ExtResource("1_ro2pm")
+material_override = ExtResource("2_5ghug")
 mesh = SubResource("ArrayMesh_bui8k")
 skeleton = NodePath("")
 
 [node name="Cube_031" type="MeshInstance3D" parent="base"]
 transform = Transform3D(1, 0, 0, 0, 0.176761, 0, 0, 0, 1, 19.1435, -0.0608546, -4.85656)
-material_override = ExtResource("1_ro2pm")
+material_override = ExtResource("2_5ghug")
 mesh = SubResource("ArrayMesh_mynyw")
 skeleton = NodePath("")
 
 [node name="Cylinder_013" type="MeshInstance3D" parent="base"]
 transform = Transform3D(0.533493, 0, 0, 0, 0.533493, 0, 0, 0, 0.533493, 17.0151, 4.48554, -4.63761)
-material_override = ExtResource("1_ro2pm")
+material_override = ExtResource("2_5ghug")
 mesh = SubResource("ArrayMesh_ymani")
 skeleton = NodePath("")
 
 [node name="Cylinder_014" type="MeshInstance3D" parent="base"]
 transform = Transform3D(0.377635, 0, 0, 0, 0.377635, 0, 0, 0, 0.377635, 16.1151, 4.37916, -5.04627)
-material_override = ExtResource("1_ro2pm")
+material_override = ExtResource("2_5ghug")
 mesh = SubResource("ArrayMesh_7sv8t")
 skeleton = NodePath("")
 
 [node name="Plane_006" type="MeshInstance3D" parent="base"]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 19.3554, -0.293522, -4.40821)
-material_override = ExtResource("1_ro2pm")
+material_override = ExtResource("2_5ghug")
 mesh = SubResource("ArrayMesh_3bflj")
 skeleton = NodePath("")
+
+[node name="SelectionCircle" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.6082, 0, 0, 0, 3.6082, 0, 0, 0, 3.6082, 0, 0.0164917, 0.726309)
+top_level = true
+visible = false
+material_override = SubResource("ShaderMaterial_8hnja")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_xuddw")
+script = ExtResource("5_v8um8")

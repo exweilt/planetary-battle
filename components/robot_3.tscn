@@ -1,6 +1,6 @@
 [gd_scene load_steps=68 format=4 uid="uid://dlwr2l2t02lr1"]
 
-[ext_resource type="Material" path="res://materials/CommandColorMat.tres" id="1_rybic"]
+[ext_resource type="Material" uid="uid://dipnx4obuddyj" path="res://materials/TeamColorMatRed.tres" id="1_3s4kr"]
 [ext_resource type="Texture2D" uid="uid://c6dhyhlqxoqp4" path="res://assets/textures/sphere_46.png" id="2_1pi8t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fuioj"]
@@ -719,126 +719,126 @@ orientation = 1
 
 [node name="Cube" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.264356, 1.00724, 0)
-material_override = ExtResource("1_rybic")
+material_override = ExtResource("1_3s4kr")
 mesh = SubResource("ArrayMesh_exi7v")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Cube_001" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.425476, 0.627644, 0)
 mesh = SubResource("ArrayMesh_40aeh")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Cube_002" type="MeshInstance3D" parent="robot"]
 mesh = SubResource("ArrayMesh_4eorh")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Cylinder" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08534, -0.0903168)
 mesh = SubResource("ArrayMesh_ejxm4")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10883, -0.0903168)
 mesh = SubResource("ArrayMesh_gs4hh")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Cube_003" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39271, -0.0806675)
 mesh = SubResource("ArrayMesh_hpc83")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Cylinder_002" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07687, -0.0806675)
 mesh = SubResource("ArrayMesh_l2quk")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Cube_004" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.24087, -0.0632798)
 mesh = SubResource("ArrayMesh_16pgl")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Cube_005" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.24087, -0.0632798)
 mesh = SubResource("ArrayMesh_ihshm")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Cylinder_003" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.46326, -0.126121)
 mesh = SubResource("ArrayMesh_nlhxg")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Cube_006" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55276, -0.126658)
 mesh = SubResource("ArrayMesh_cdtg3")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Cylinder_004" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0836143, 2.4443, 0.0593308)
 mesh = SubResource("ArrayMesh_es6th")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Cylinder_005" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0836143, 2.4443, -0.00387347)
 mesh = SubResource("ArrayMesh_j10dd")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Cylinder_006" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0836143, 2.4443, -0.0681357)
 mesh = SubResource("ArrayMesh_mb0t4")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Cube_007" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.725897, 2.07564, -0.0917246)
 mesh = SubResource("ArrayMesh_u7met")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Cylinder_007" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83494, 2.18006, -0.544426)
 mesh = SubResource("ArrayMesh_e0nr2")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Cube_008" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.698792, 2.08196, -0.251532)
 mesh = SubResource("ArrayMesh_rlbkj")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Slice_001" type="MeshInstance3D" parent="robot/Cube_008"]
 mesh = SubResource("ArrayMesh_ygjpn")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Slice_002" type="MeshInstance3D" parent="robot/Cube_008"]
 mesh = SubResource("ArrayMesh_c7qpv")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Slice_003" type="MeshInstance3D" parent="robot/Cube_008"]
 mesh = SubResource("ArrayMesh_bvigk")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="Cube_012" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.216177, 0.914318, 0.663319)
 mesh = SubResource("ArrayMesh_2v85t")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_rybic")
+surface_material_override/0 = ExtResource("1_3s4kr")
 
 [node name="SelectionCircle" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0164917, 0)

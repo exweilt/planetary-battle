@@ -32,7 +32,7 @@ static func unserialize(data: Dictionary, path: NodePath) -> Turret:
 	return new_turret
 	
 # Called when the node enters the scene tree for the first time.
-func pb_ready() -> void:
+func _ready() -> void:
 	label3d.text = str(score)
 	center_point = get_node("MeshInstance3D").global_position 
 

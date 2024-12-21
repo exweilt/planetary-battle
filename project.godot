@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Planetary;Battle -> l'iterazione 1"
 config/description="The first Iteration of Planetary;Battle project"
-run/main_scene="res://components/pb_world.tscn"
+run/main_scene="res://components/PBWorld.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/show_image=false
 boot_splash/use_filter=false
@@ -28,6 +28,10 @@ StateManager="*res://src/state_manager.gd"
 
 window/size/viewport_width=950
 window/size/viewport_height=530
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/progress_bar_3d/plugin.cfg")
 
 [input]
 

@@ -1,7 +1,11 @@
-[gd_scene load_steps=64 format=4 uid="uid://bdstr642dlew2"]
+[gd_scene load_steps=73 format=4 uid="uid://bdstr642dlew2"]
 
-[ext_resource type="Material" uid="uid://bw1q3ugw032ho" path="res://materials/robot.tres" id="1_bgtdp"]
 [ext_resource type="Script" path="res://src/Robot.gd" id="1_hbo0w"]
+[ext_resource type="Material" uid="uid://yrqbarihpxnd" path="res://materials/TeamColorMatBlue.tres" id="2_ewhy7"]
+[ext_resource type="Texture2D" uid="uid://c6dhyhlqxoqp4" path="res://assets/textures/sphere_46.png" id="3_e1sl6"]
+[ext_resource type="Shader" uid="uid://bis1sejrnr2xs" path="res://materials/SelectionCircleShader.tres" id="3_wnvwo"]
+[ext_resource type="Script" path="res://src/SelectionCircle.gd" id="4_e4m4d"]
+[ext_resource type="Script" path="res://addons/progress_bar_3d/progress_bar_3d.gd" id="6_2dii2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fuioj"]
 
@@ -37,7 +41,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jsm5j")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_pikbc"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_nplep"]
 _surfaces = [{
 "aabb": AABB(-1.22129, -0.164112, -1, 1.59163, 0.285515, 2),
 "format": 34896613377,
@@ -51,7 +55,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_40aeh"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_wvijl"]
 resource_name = "robot_Cube_002"
 _surfaces = [{
 "aabb": AABB(-1.22129, -0.164112, -1, 1.59163, 0.285515, 2),
@@ -60,14 +64,14 @@ _surfaces = [{
 "index_count": 264,
 "index_data": PackedByteArray("CwAZABcACwAAABkAAAAcABkAAAAGABwABQAfABsABQADAB8AEgANABQAEgAJAA0AFQALABcAFQAOAAsAKwA5ACAAKwA3ADkAIAA7ACUAIAA5ADsAJgA/ACMAJgA8AD8AMgAuACkAMgA1AC4ANAArAC0ANAA3ACsADwAsAAwADwAvACwACgAvAA8ACgAqAC8AAQAnAAcAAQAhACcABwAkAAQABwAnACQAAgA+AB4AAgAiAD4ADAAhAAEADAAsACEAEwAwABAAEwAzADAAFgAzABMAFgA2ADMAGAA2ABYAGAA4ADYAGgA4ABgAGgA6ADgAHQA6ABoAHQA9ADoAEQAoAAgAEQAxACgATABYAEEATABWAFgAQQBbAEcAQQBYAFsARgBeAEQARgBaAF4AUQBOAEoAUQBTAE4AVABMAE8AVABWAEwAbAB4AHYAbABhAHgAYQB6AHgAYQBmAHoAZwB+AHsAZwBkAH4AcQBvAHQAcQBqAG8AcwBsAHYAcwBuAGwATQBrAG0ATQBLAGsASABtAGgASABNAG0AQABlAGAAQABFAGUARQBiAGUARQBCAGIAQwB9AGMAQwBdAH0ASwBgAGsASwBAAGAAVQByAHUAVQBSAHIAVwB1AHcAVwBVAHUAWQB3AHkAWQBXAHcAXAB5AHwAXABZAHkAXwB8AH8AXwBcAHwAUABpAHAAUABJAGkA"),
 "lods": [0.729573, PackedByteArray("AAAfABQAAAADAB8AFAANAAAAEgANABQAEgAJAA0AgAA/ACMAIAA0AD8AMgA0ACAAMgAgACkADwAhAAEACgAhAA8ACgAqACEAAQAhACQAAQAkAAQAAgA+AB4AAgAiAD4AEwAwABAAEwAzADAAHQAzABMAHQA9ADMAEQAoAAgAEQAxACgARgBWAFoAUwBWAEYARgBaAF4ARgBeAEQAUQBTAEYAUQBGAEoAZgB+AHYAZgBkAH4AcQBmAHYAcQBqAGYASABlAGgASABFAGUARQBiAGUARQBCAGIAQwB9AGMAQwBdAH0AVQByAHcAVQBSAHIAVwBVAHcAXABXAHcAXwBcAHcAXwB3AH8AUABpAHAAUABJAGkA")],
-"material": ExtResource("1_bgtdp"),
+"material": ExtResource("2_ewhy7"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 129,
 "vertex_data": PackedByteArray("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")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_pikbc")
+shadow_mesh = SubResource("ArrayMesh_nplep")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8m7k1"]
 
@@ -126,7 +130,7 @@ _surfaces = [{
 "index_count": 1140,
 "index_data": PackedByteArray("hgAJAAQAhgCLAAkAiwANAAkAiwCPAA0AjwARAA0AjwCTABEAkwAVABEAkwCXABUAlwAZABUAlwCbABkAmwAdABkAmwCfAB0AnwAhAB0AnwCjACEAowAlACEAowCnACUApwApACUApwCrACkAqwAtACkAqwCvAC0ArwAxAC0ArwCzADEAswA1ADEAswC3ADUAtwA5ADUAtwC7ADkAuwA9ADkAuwC/AD0AvwBBAD0AvwDDAEEAwwBFAEEAwwDGAEUAxgBIAEUAxgDKAEgAygBMAEgAygDOAEwAzgBQAEwAzgDSAFAA0gBUAFAA0gDWAFQA1gBYAFQA1gDaAFgA2gBcAFgA2gDeAFwA3gBgAFwA3gDiAGAA4gBkAGAA4gDmAGQA5gBoAGQA5gDqAGgA6gBsAGgA6gDuAGwA7gBwAGwA7gDyAHAA8gB0AHAA8gD2AHQA9gB4AHQA9gD6AHgA+gB8AHgA+gD+AHwADAADAAgAAwB9AIEAfQB1AHkAdQBtAHEAbQBlAGkAZQBdAGEAXQBVAFkAVQBNAFEATQBEAEkARAA8AEAAPAA0ADgANAAsADAALAAkACgAJAAcACAAHAAUABgAFAAMABAADAB9AAMAfQBtAHUAbQBdAGUAXQBNAFUATQA8AEQAPAAsADQALAAcACQAHAAMABQADABtAH0AbQBNAF0ATQAsADwALAAMABwADABNAG0ATQAMACwA/gCAAHwA/gACAYAAAgEFAIAAAgGHAAUAfwAGAAIABgAOAAoADgAWABIAFgAeABoAHgAmACIAJgAuACoALgA2ADIANgA+ADoAPgBHAEMARwBPAEsATwBXAFMAVwBfAFsAXwBnAGMAZwBvAGsAbwB3AHMAdwB/AHsAfwAOAAYADgAeABYAHgAuACYALgA+ADYAPgBPAEcATwBfAFcAXwBvAGcAbwB/AHcAfwAeAA4AHgA+AC4APgBfAE8AXwB/AG8AfwA+AB4APgB/AF8AfgCFAAQBfgABAIUAegAEAQABegB+AAQBdgAAAfwAdgB6AAABcgD8APgAcgB2APwAbgD4APQAbgByAPgAagD0APAAagBuAPQAZgDwAOwAZgBqAPAAYgDsAOgAYgBmAOwAXgDoAOQAXgBiAOgAWgDkAOAAWgBeAOQAVgDgANwAVgBaAOAAUgDcANgAUgBWANwATgDYANQATgBSANgASgDUANAASgBOANQARgDQAMwARgBKANAAQgDMAMkAQgBGAMwAPwDJAMUAPwBCAMkAOwDFAMEAOwA/AMUANwDBAL0ANwA7AMEAMwC9ALkAMwA3AL0ALwC5ALUALwAzALkAKwC1ALEAKwAvALUAJwCxAK0AJwArALEAIwCtAKkAIwAnAK0AHwCpAKUAHwAjAKkAGwClAKEAGwAfAKUAFwChAJ0AFwAbAKEAEwCdAJkAEwAXAJ0ADwCZAJUADwATAJkACwCVAJEACwAPAJUABwCRAI0ABwALAJEAAACNAIQAAAAHAI0AewF5AXcBewF9AXkBjAAVAZAAjAARARUBwABJAcQAwABFAUkB9QB8AfkA9QB4AXwBjgAPAYoAjgATAQ8BwgBDAb4AwgBHAUMB9wB2AfMA9wB6AXYBggARAYwAggAGAREBvABFAcAAvABBAUUB8QB4AfUA8QB0AXgBigAKAYgAigAPAQoBvgA/AboAvgBDAT8B8wByAe8A8wB2AXIBuABBAbwAuAA9AUEB7QB0AfEA7QBwAXQBugA7AbYAugA/ATsB7wBuAesA7wByAW4BtAA9AbgAtAA5AT0B6QBwAe0A6QBsAXABtgA3AbIAtgA7ATcB6wBqAecA6wBuAWoBsAA5AbQAsAA1ATkB5QBsAekA5QBoAWwBsgAzAa4AsgA3ATMB5wBmAeMA5wBqAWYBrAA1AbAArAAxATUB4QBoAeUA4QBkAWgBrgAvAaoArgAzAS8B4wBiAd8A4wBmAWIBqAAxAawAqAAtATEB3QBkAeEA3QBgAWQBqgArAaYAqgAvASsB3wBeAdsA3wBiAV4BpAAtAagApAApAS0B2QBgAd0A2QBcAWABpgAnAaIApgArAScB2wBaAdcA2wBeAVoBoAApAaQAoAAlASkB1QBcAdkA1QBYAVwBogAjAZ4AogAnASMB1wBWAdMA1wBaAVYBnAAlAaAAnAAhASUB0QBYAdUA0QBUAVgBBQEHAYMABQGIAQcBngAfAZoAngAjAR8B0wBSAc8A0wBWAVIBiQCGAQMBiQALAYYBmAAhAZwAmAAdASEBzQBUAdEAzQBQAVQBAQGIAQUBAQGEAYgBmgAbAZYAmgAfARsBzwBOAcsAzwBSAU4BAwGCAf8AAwGGAYIBlAAdAZgAlAAZAR0ByABQAc0AyABMAVAB/QCEAQEB/QCAAYQBlgAXAZIAlgAbARcBywBLAccAywBOAUsB/wB+AfsA/wCCAX4BkAAZAZQAkAAVARkBxABMAcgAxABJAUwB+QCAAf0A+QB8AYABkgATAY4AkgAXARMBxwBHAcIAxwBLAUcB+wB6AfcA+wB+AXoBdwF1AXMBdwF5AXUBdQFvAXMBdQFxAW8BcQFrAW8BcQFtAWsBbQFnAWsBbQFpAWcBaQFjAWcBaQFlAWMBZQFfAWMBZQFhAV8BYQFbAV8BYQFdAVsBXQFXAVsBXQFZAVcBWQFTAVcBWQFVAVMBVQFPAVMBVQFRAU8BUQFKAU8BUQFNAUoBTQFGAUoBTQFIAUYBSAFCAUYBSAFEAUIBRAE+AUIBRAFAAT4BQAE6AT4BQAE8AToBPAE2AToBPAE4ATYBOAEyATYBOAE0ATIBNAEuATIBNAEwAS4BMAEqAS4BMAEsASoBLAEmASoBLAEoASYBKAEiASYBKAEkASIBJAEeASIBJAEgAR4BIAEaAR4BIAEcARoBHAEWARoBHAEYARYBGAESARYBGAEUARIBFAEOARIBFAEQAQ4BEAEMAQ4BEAEIAQwBCQGHAQ0BCQGJAYcBiQGDAYcBiQGFAYMBhQF/AYMBhQGBAX8BewGBAX0BewF/AYEB"),
 "lods": [0.438694, PackedByteArray("lAGOAQQAlQGWAY8BlgGYAY8BmAGbAY8BmwGdAY8BnQGeAY8BngGfAY8BnwGhAY8BoQGkAY8BpAGnAY8BpwGpAY8BqQGrAY8BqwGtAY8BrQGvAY8BrwGxAY8BsQGzAY8BswG1AY8BtQG3AY8BtwG5AY8BuQG7AY8BuwG9AY8BvQHaAI8B2gDeAGwA0wHVAY8BwAHCAY8BwwHFAZABxgHIAZEByAHuAJEB7gDLAZEBywHNAZEB0QH+AJEBzgHQAZEB1gGKAZIB1gGHAAUAiwGTAdcBiwGoAaUBiwGxAK0AiwGsAaoBiwGuAawBiwGwAa4BiwGyAbABiwG0AbIBiwG2AbQBiwG4AbYBiwG6AbgBiwG8AboBiwG+AbwBiwG/Ab4BiwHBAb8BiwHEAcEBiwHHAcQBiwHJAccBiwHKAckBiwHMAcoBiwHPAcwBiwHSAc8BiwHUAdIBiwEEAdQBEwABAIUAjAGmAaIBjQGjAaABjQGgAZ0AjQGdAJkAjQGZAJwBjQGcAZkBjQGaAZcBAACNAY0AAACNAIQAjAAZAZAAkAAZAZQAlAAZAZgAmAAZAZwAjAARARkBggARAYwAggAGAREBnAAZASkBnAApAaAAoAApAaQApAApAagAqAApAawArAApATkBrAA5AbAAsAA5AbQAtAA5AbgAuAA5AbwAvAA5AWgBvABoAcAAwABoAcQAxABoAcgAyABoAc0AzQBoAdEA0QBoAdUA1QBoAdkA2QBoAd0A3QBoAeEA4QBoAeUA5QBoAekA6QBoAe0A7QBoAfEA8QBoAfUA9QBoAfkA+QBoAf0A/QBoAYgB/QCIAQEBAQGIAQUBBQGIAQcBBQEHAYMAjgATAYoAkgATAY4AigATAQoBigAKAYgAlgATAZIAlgAfARMBmgAfAZYAngAfAZoAogAfAZ4ApgAfAaIApgAvAR8BqgAvAaYArgAvAaoAsgAvAa4AtgAvAbIAtgBWAS8BugBWAbYAvgBWAboAwgBWAb4AxwBWAcIAywBWAccAzwBWAcsA0wBWAc8A1wBWAdMA2wBWAdcA3wBWAdsA3wB6AVYB4wB6Ad8A5wB6AeMA6wB6AecA7wB6AesA8wB6Ae8A9wB6AfMA+wB6AfcA/wB6AfsAAwF6Af8AiQB6AQMBiQALAXoB6AHmAeoB2AHsAeoB5QHiAeYB4QHeAeIB3QHbAd4BEAHZAdsBEAEIAQwB6QHkAecB7QHpAesB5AHgAeMB4AHcAd8B3AHaARIBCQF7AQ0B")],
-"material": ExtResource("1_bgtdp"),
+"material": ExtResource("2_ewhy7"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 494,
@@ -697,92 +701,169 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7qgrm")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_75la6"]
+render_priority = 0
+shader = ExtResource("3_wnvwo")
+shader_parameter/albedo = Color(0.81369, 0.826226, 3.85046e-07, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_albedo = ExtResource("3_e1sl6")
+
+[sub_resource type="QuadMesh" id="QuadMesh_mc8qu"]
+size = Vector2(3.5, 3.5)
+orientation = 1
+
+[sub_resource type="Shader" id="Shader_sonqh"]
+code = "shader_type spatial;
+
+
+// WARNING:
+// if the following render_mode line is removed or altered
+// the script progress_bar_3d.gd will no longer be able to
+// update the shader in memory to turn these off.  See
+// function progress_bar_3d.gd:_update_shader()
+render_mode unshaded, shadows_disabled, depth_test_disabled;
+
+
+uniform vec4 background_color : source_color = vec4(.0,.0,.0,1.);
+uniform vec4 progress_color : source_color = vec4(.0,1.,.0,1.);
+uniform float progress_value : hint_range(0.0, 1.0, 0.01) = .5;
+uniform int billboard_mode = 1;
+
+
+void vertex() {
+	//enabled
+	if(billboard_mode == 1) {
+		MODELVIEW_MATRIX = VIEW_MATRIX * mat4(INV_VIEW_MATRIX[0], INV_VIEW_MATRIX[1], INV_VIEW_MATRIX[2], MODEL_MATRIX[3]);
+		MODELVIEW_NORMAL_MATRIX = mat3(MODELVIEW_MATRIX);
+	//fixed y
+	} else if(billboard_mode == 2) {
+		MODELVIEW_MATRIX = VIEW_MATRIX * mat4(vec4(normalize(cross(vec3(0.0, 1.0, 0.0), INV_VIEW_MATRIX[2].xyz)), 0.0), vec4(0.0, 1.0, 0.0, 0.0), vec4(normalize(cross(INV_VIEW_MATRIX[0].xyz, vec3(0.0, 1.0, 0.0))), 0.0), MODEL_MATRIX[3]);
+		MODELVIEW_NORMAL_MATRIX = mat3(MODELVIEW_MATRIX);
+	}
+}
+
+
+void fragment() {
+	vec2 border = vec2(0.02, 0.2);
+
+	vec2 mask2 = step(border, UV) * step(UV, 1.0-border);
+    float mask = mask2.x*mask2.y;
+
+    float blend = ((UV.x - progress_value) <= 0.0 ? 1.0 : 0.0) * mask;
+    vec4 fragColor = progress_color*blend + background_color*(1.0-blend);
+	ALBEDO = fragColor.rgb;
+	ALPHA = fragColor.a;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l7x4b"]
+render_priority = 0
+shader = SubResource("Shader_sonqh")
+shader_parameter/background_color = Color(0, 0, 0, 1)
+shader_parameter/progress_color = Color(0, 0.160333, 0.74, 1)
+shader_parameter/progress_value = 1.0
+shader_parameter/billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_vbslb"]
+resource_local_to_scene = true
+material = SubResource("ShaderMaterial_l7x4b")
+size = Vector2(1.69, 0.18)
+
 [node name="Robot" type="Node3D"]
 rotation_edit_mode = 2
 script = ExtResource("1_hbo0w")
 
 [node name="robot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00539845, 0)
 
 [node name="Cube" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.264356, 1.00724, 0)
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_exi7v")
 skeleton = NodePath("")
 
 [node name="Cube_001" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.425476, 0.627644, 0)
-material_override = ExtResource("1_bgtdp")
-mesh = SubResource("ArrayMesh_40aeh")
+material_override = ExtResource("2_ewhy7")
+mesh = SubResource("ArrayMesh_wvijl")
 skeleton = NodePath("")
 
 [node name="Cube_002" type="MeshInstance3D" parent="robot"]
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_4eorh")
 skeleton = NodePath("")
 
 [node name="Cylinder" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08534, -0.0903168)
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_ejxm4")
 skeleton = NodePath("")
 
 [node name="joint" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10883, -0.0903168)
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_gs4hh")
 skeleton = NodePath("")
 
 [node name="Cylinder_002" type="MeshInstance3D" parent="robot/joint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96804, 0.0096493)
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_l2quk")
 skeleton = NodePath("")
 
 [node name="Cube_004" type="MeshInstance3D" parent="robot/joint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13204, 0.027037)
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_16pgl")
 skeleton = NodePath("")
 
 [node name="Cube_005" type="MeshInstance3D" parent="robot/joint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13204, 0.027037)
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_ihshm")
 skeleton = NodePath("")
 
 [node name="Cylinder_003" type="MeshInstance3D" parent="robot/joint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35443, -0.0358042)
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_nlhxg")
 skeleton = NodePath("")
 
 [node name="Cube_006" type="MeshInstance3D" parent="robot/joint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44393, -0.0363412)
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_cdtg3")
 skeleton = NodePath("")
 
 [node name="Cylinder_004" type="MeshInstance3D" parent="robot/joint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0836143, 1.33547, 0.149648)
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_es6th")
 skeleton = NodePath("")
 
 [node name="Cylinder_005" type="MeshInstance3D" parent="robot/joint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0836143, 1.33547, 0.0864433)
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_j10dd")
 skeleton = NodePath("")
 
 [node name="Cylinder_006" type="MeshInstance3D" parent="robot/joint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0836143, 1.33547, 0.0221811)
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_mb0t4")
 skeleton = NodePath("")
 
 [node name="Cube_007" type="MeshInstance3D" parent="robot/joint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.725897, 0.96681, -0.00140779)
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_u7met")
 skeleton = NodePath("")
 
@@ -792,45 +873,47 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.553261)
 
 [node name="Cylinder_007" type="MeshInstance3D" parent="robot/joint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83494, 1.07123, -0.454109)
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_e0nr2")
 skeleton = NodePath("")
 
 [node name="Cube_008" type="MeshInstance3D" parent="robot/joint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.698792, 0.97313, -0.161215)
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_rlbkj")
 skeleton = NodePath("")
 
 [node name="Slice_001" type="MeshInstance3D" parent="robot/joint/Cube_008"]
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_ygjpn")
 skeleton = NodePath("")
 
 [node name="Slice_002" type="MeshInstance3D" parent="robot/joint/Cube_008"]
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_c7qpv")
 skeleton = NodePath("")
 
 [node name="Slice_003" type="MeshInstance3D" parent="robot/joint/Cube_008"]
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_bvigk")
 skeleton = NodePath("")
 
 [node name="Cube_003" type="MeshInstance3D" parent="robot/joint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28388, 0.0096493)
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_hpc83")
 skeleton = NodePath("")
 
 [node name="Cube_012" type="MeshInstance3D" parent="robot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.216177, 0.914318, 0.663319)
-material_override = ExtResource("1_bgtdp")
+material_override = ExtResource("2_ewhy7")
 mesh = SubResource("ArrayMesh_2v85t")
 skeleton = NodePath("")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 0.3
+path_height_offset = 0.2
+path_max_distance = 3.01
 debug_enabled = true
 
 [node name="LogicRefresher" type="Timer" parent="."]
@@ -841,5 +924,22 @@ autostart = true
 wait_time = 2.0
 one_shot = true
 autostart = true
+
+[node name="SelectionCircle" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0164917, 0)
+top_level = true
+visible = false
+material_override = SubResource("ShaderMaterial_75la6")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_mc8qu")
+script = ExtResource("4_e4m4d")
+
+[node name="ProgressBar3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.74089, 0)
+mesh = SubResource("QuadMesh_vbslb")
+script = ExtResource("6_2dii2")
+size = Vector2(1.69, 0.18)
+value = 100.0
+progress_color = Color(0, 0.160333, 0.74, 1)
 
 [connection signal="timeout" from="LogicRefresher" to="." method="logic_update"]

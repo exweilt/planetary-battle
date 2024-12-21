@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://mcb672l38wix" path="res://materials/box.tres" id="4_giwql"]
 [ext_resource type="PackedScene" uid="uid://bdstr642dlew2" path="res://components/robot.tscn" id="5_bmr3t"]
 [ext_resource type="PackedScene" uid="uid://csg7w0rrxv0yy" path="res://components/turret.tscn" id="6_dayaj"]
-[ext_resource type="Script" path="res://PlayerController.gd" id="6_q6rdt"]
+[ext_resource type="Script" path="res://src/PlayerController.gd" id="6_q6rdt"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4yuxq"]
 
